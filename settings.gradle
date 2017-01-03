@@ -1,0 +1,4 @@
+rootProject.name = 'struts1-tutorial'
+include 'struts1-tutorial-newer'
+findProject(':struts1-tutorial-newer')?.name = 'struts1-tutorial'
+

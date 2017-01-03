@@ -1,0 +1,19 @@
+group 'struts1-tutorial'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile (
+            'javax.servlet:jstl:1.2'
+    )
+}

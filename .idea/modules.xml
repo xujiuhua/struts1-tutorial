@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts1-tutorial.iml" filepath="$PROJECT_DIR$/.idea/modules/struts1-tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial.iml" filepath="$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial.iml" group="struts1-tutorial" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial_main.iml" filepath="$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial_main.iml" group="struts1-tutorial" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial_test.iml" filepath="$PROJECT_DIR$/.idea/modules/struts1-tutorial-newer/struts1-tutorial-struts1-tutorial_test.iml" group="struts1-tutorial" />
+    </modules>
+  </component>
+</project>
