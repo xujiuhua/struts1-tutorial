@@ -9,10 +9,10 @@
         <form-bean name="dynStudentForm"
                    type="org.apache.struts.action.DynaActionForm">
             <!-- 这里的type必须是完整的 -->
-            <form-property name="sname" type="java.lang.String" />
-            <form-property name="birthday" type="java.sql.Date" />
-            <form-property name="major" type="java.lang.String" />
-            <form-property name="score" type="java.lang.Float" />
+            <form-property name="sname" type="java.lang.String"/>
+            <form-property name="birthday" type="java.sql.Date"/>
+            <form-property name="major" type="java.lang.String"/>
+            <form-property name="score" type="java.lang.Float"/>
         </form-bean>
 
         <form-bean name="lazyForm" type="org.apache.struts.validator.LazyValidatorForm"/>
@@ -23,7 +23,13 @@
     </global-forwards>
 
     <action-mappings>
-        <!--original-->
+        <!--默认首页-->
+        <action path="/index" type="com.ebiz.webapp.web.action.IndexAction" name="lazyForm" validate="false"
+                parameter="method">
+            <forward name="success" path="/login.jsp"></forward>
+        </action>
+
+        <!--Original-->
         <action path="/login" type="com.ebiz.webapp.web.action.LoginAction" name="loginForm">
             <forward name="loginSuccess" path="/loginSuccess.jsp"></forward>
             <forward name="loginFail" path="/loginFail.jsp"></forward>
@@ -32,16 +38,16 @@
         <!--动态表单，不需要书写formbean-->
         <action path="/dynAddStudent"
                 type="com.ebiz.webapp.web.action.DynAddStudentAction" name="dynStudentForm">
-            <forward name="addSuccess" path="/student/addSuccess.jsp"></forward>
-            <forward name="addFail" path="/student/addFail.jsp"></forward>
+            <forward name="addSuccess" path="/views/student/addSuccess.jsp"></forward>
+            <forward name="addFail" path="/views/student/addFail.jsp"></forward>
         </action>
 
         <!--方式1 extends DispatchAction-->
         <!--http://localhost:8080/student.do?method=addStudent-->
         <action path="/student" type="com.ebiz.webapp.web.action.DispatchStudentAction"
                 name="dynStudentForm" parameter="method">
-            <forward name="addSuccess" path="/student/addSuccess.jsp"></forward>
-            <forward name="addFail" path="/student/addFail.jsp"></forward>
+            <forward name="addSuccess" path="/views/student/addSuccess.jsp"></forward>
+            <forward name="addFail" path="/views/student/addFail.jsp"></forward>
         </action>
 
         <!--方式2 extends MappingDispatchAction-->
@@ -56,13 +62,29 @@
                 name="dynStudentForm" parameter="updateStudent">
         </action>
 
+        <!--LazyValidatorForm-->
         <action path="/lazyLogin" type="com.ebiz.webapp.web.action.LazyLoginAction" name="lazyForm" validate="false">
             <forward name="loginSuccess" path="/loginSuccess.jsp"></forward>
             <forward name="loginFail" path="/loginFail.jsp"></forward>
         </action>
 
-        <action path="/index" type="com.ebiz.webapp.web.action.IndexAction" name="lazyForm" validate="false" parameter="method">
-            <forward name="success" path="/login.jsp"></forward>
+        <!--urlrewrite-->
+        <action path="/world" type="com.ebiz.webapp.web.action.WorldAction" name="lazyForm" validate="false"
+                parameter="method">
+            <forward name="worldRequest" path="/views/urlrewrite/worldRequest.jsp"></forward>
+        </action>
+
+        <!--scope request session-->
+        <action path="/scope" type="com.ebiz.webapp.web.action.ScopeAction" name="lazyForm" validate="false"
+                parameter="method" scope="request">
+            <forward name="req" path="/views/scope/req.jsp"></forward>
+        </action>
+
+        <!--转发与重定向-->
+        <action path="/redirect" type="com.ebiz.webapp.web.action.RedirectAction" name="lazyForm" validate="false"
+                parameter="method" scope="request">
+            <forward name="redirectFalse" path="/views/forward/redirect-false.jsp"></forward>
+            <forward name="redirectTrue" path="/views/forward/redirect-true.jsp" redirect="true"></forward>
         </action>
 
     </action-mappings>
